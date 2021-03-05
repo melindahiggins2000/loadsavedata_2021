@@ -1,0 +1,42 @@
+---
+title: "File 02 - Read in data"
+author: "Melinda Higgins"
+date: "3/5/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Read in your data
+
+Now let's read back in the "mydata.Rdata". This should speed up your work - assuming that creating this "mydata.Rdata" took some time to prepare and create.
+
+Show that the current RMD session is empty.
+
+```{r}
+ls()
+```
+
+Now load the objects in "mydata.Rdata" and look at the list again.
+
+```{r}
+load("mydata.Rdata")
+ls()
+```
+
+Now your objects are ready to use. Here is the plot of the normal curve density data again.
+
+```{r}
+plot(x, xnorm, type = "b")
+```
+
+Show summary of the `AMS` dataset.
+
+```{r}
+summary(AMS)
+```
+

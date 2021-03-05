@@ -1,0 +1,56 @@
+---
+title: "File 01 - create data objects and save them in Rdata"
+author: "Melinda Higgins"
+date: "3/5/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lets local some data
+
+Let's load some data objects from the `palmerpenguins` package and the `carData` packages.
+
+```{r}
+library(palmerpenguins)
+library(carData)
+
+# load penguins dataset
+# from the palmerpenguins package
+ppdata <- penguins
+
+# load American Math Society Survey Data
+# dataset from the carData package
+AMS <- AMSsurvey
+
+# create sequence of numbers from -3 to 3 in steps of 0.1
+# then compute the densities for a standard normal curve
+# then plot the normal curve
+x <- seq(from = -3, to = 3, by = 0.1)
+xnorm <- dnorm(x)
+plot(x, xnorm, type = "b")
+
+```
+
+## See list of objects created so far
+
+```{r}
+# list objects in memory created during this Rmd session
+ls()
+```
+
+## Save objects to read into File 02
+
+Let's save `AMS`, `x` and `xnorm`. We'll skip `ppdata` for now. You can always add it to the list if you like or remove the objects you don't want to save.
+
+```{r}
+save(AMS, x, xnorm,
+     file = "mydata.Rdata")
+```
+
+Now open "File02_readin_data.Rmd" and read your data back in. This will work even if your Global Environment is empty. All you need is the file "mydata.Rdata".
+
